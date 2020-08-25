@@ -1,6 +1,6 @@
 # CsgoFit
 
-Personal project. FaceIt CSGO tracker with their public API. Creating data to be visually aesthetic. If possible, have more advance stats later
+Personal project. FaceIt CSGO tracker with their public API. Creating data to be visually aesthetic. If possible, have more advance stats later.  
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.7.
 
 ## Development server
