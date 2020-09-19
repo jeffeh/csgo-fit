@@ -1,10 +1,15 @@
-<!-- need to add classes for elements -->
-<!-- need to add router link component i think-->
-<nav>
-    <div class="container">
-        <ul class="nav navbar-nav" routerLinkActive="active">
-            <li class="nav-item"><a class="nav-link" routerLink="home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" routerLink="about">About</a></li>
-        </ul>
+<nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <span class="font-semibold text-xl tracking-tight">CS:GO Faceit Tracker</span>
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-gray-100 hover:text-white mr-4">
+                Home
+            </a>
+            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-gray-100 hover:text-white mr-4">
+                About
+            </a>
+            </div>
     </div>
 </nav>
