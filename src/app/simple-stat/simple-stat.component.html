@@ -1,5 +1,11 @@
 <div>
     Player Nickname: {{ playerData.nickname }}
     <br />
+    FaceIt Skill Level: {{ playerData.games.csgo.skill_level }}
+    <br />
     Elo: {{ playerData.games.csgo.faceit_elo }}
+</div>
+<div>
+        <!-- <input [(ngModel)]="hero.name" placeholder="name" /> -->
+    Search player: <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block appearance-none leading-normal w-auto" type="email" placeholder="Player nickname">
 </div>
