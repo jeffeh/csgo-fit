@@ -13,11 +13,11 @@ export class SimpleStatComponent implements OnInit {
   constructor(private faceitService: FaceitService) { }
 
   ngOnInit(): void {
-    this.getData();
   }
 
-  getData(): void {
-    this.faceitService.getData().subscribe(data => {
+  getData(username: string): void {
+    console.log(username);
+    this.faceitService.getData(username).subscribe(data => {
       this.playerData = data;
     });
   }
