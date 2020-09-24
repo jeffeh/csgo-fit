@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPlayerData } from 'src/interfaces/IPlayerData';
+import { IMatchHistory } from 'src/interfaces/IMatchHistory';
 import { FaceitService } from '../../services/faceit.service';
 
 @Component({
@@ -10,6 +11,8 @@ import { FaceitService } from '../../services/faceit.service';
 export class SimpleStatComponent implements OnInit {
 
   playerData: IPlayerData;
+  matchHistory: IMatchHistory;
+
   constructor(private faceitService: FaceitService) { }
 
   ngOnInit(): void {
@@ -19,6 +22,13 @@ export class SimpleStatComponent implements OnInit {
     console.log(username);
     this.faceitService.getData(username).subscribe(data => {
       this.playerData = data;
+      this.getMatchHistory(this.playerData.player_id);
+    });
+  }
+
+  getMatchHistory(userId: string): void {
+    this.faceitService.getMatchHistory(userId).subscribe(data => {
+      this.matchHistory = data;
     });
   }
 }
