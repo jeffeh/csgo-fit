@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { SimpleStatComponent } from './simple-stat/simple-stat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    SimpleStatComponent
   ],
   imports: [
     BrowserModule,
