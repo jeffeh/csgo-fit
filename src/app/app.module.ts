@@ -8,6 +8,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { SimpleStatComponent } from './simple-stat/simple-stat.component';
+import { GoodCompanyComponent } from './good-company/good-company.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SimpleStatComponent } from './simple-stat/simple-stat.component';
     NavBarComponent,
     HomeComponent,
     AboutComponent,
-    SimpleStatComponent
+    SimpleStatComponent,
+    GoodCompanyComponent
   ],
   imports: [
     BrowserModule,

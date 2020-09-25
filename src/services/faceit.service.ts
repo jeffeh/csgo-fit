@@ -23,6 +23,11 @@ export class FaceitService {
     return this.httpClient.get<IPlayerData>(`https://open.faceit.com/data/v4/players?nickname=${user}`, this.clientOptions);
   }
 
+  getDataById(player_id: string): Observable<IPlayerData> {
+    return this.httpClient.get<IPlayerData>(`https://open.faceit.com/data/v4/players/${player_id}`, this.clientOptions);
+  }
+
+
   getMatchHistory(userId: string): Observable<IMatchHistory> {
     return this.httpClient.get<IMatchHistory>(`https://open.faceit.com/data/v4/players/${userId}/history?game=csgo&offset=0&limit=20`, this.clientOptions);
   }
