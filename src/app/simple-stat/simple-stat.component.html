@@ -1,8 +1,4 @@
 <div>
-    <input #user
-           class="w-full text-center" 
-           placeholder="Enter username..." 
-           (keyup.enter)="getData(user.value)" />
     <div *ngIf="playerData">
         Current Level: {{ playerData.games.csgo.skill_level }}
         <br />

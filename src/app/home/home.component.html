@@ -1,1 +1,9 @@
-<app-simple-stat></app-simple-stat>
+<div>
+    <input #user
+           class="w-full text-center" 
+           placeholder="Enter username..."  
+           (keyup.enter)="onSubmit(user.value)"/>
+    <div *ngIf="refreshStats">
+        <app-simple-stat [username]=username></app-simple-stat>
+    </div>
+</div>
