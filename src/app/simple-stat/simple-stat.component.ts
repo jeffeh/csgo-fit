@@ -2,6 +2,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { IPlayerData } from 'src/interfaces/IPlayerData';
 import { IMatchHistory } from 'src/interfaces/IMatchHistory';
 import { FaceitService } from '../../services/faceit.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-simple-stat',
@@ -14,13 +15,20 @@ export class SimpleStatComponent implements OnChanges {
   playerData: IPlayerData;
   matchHistory: IMatchHistory;
 
-  constructor(private faceitService: FaceitService) { }
+  constructor(
+    private faceitService: FaceitService,
+    private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    const gcPlayerName = this.route.snapshot.paramMap.get('playerName');
+    this.getData(gcPlayerName);
+  }
 
   ngOnChanges(): void {
     this.getData(this.username);
   }
 
-  private getData(username: string): void {
+  public getData(username: string): void {
     this.getPlayerData(username);
   }
 

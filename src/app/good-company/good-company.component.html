@@ -2,7 +2,7 @@
 <h2>Good Company Players:</h2>
 <ul>
   <li *ngFor="let player of gcPlayers">
-    <span>{{player.nickname}}</span> 
+    <a routerLink="/good-company/{{player.nickname}}">{{player.nickname}}</a> 
   </li>
 </ul>
 <div>--- test ---</div>

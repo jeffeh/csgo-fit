@@ -14,7 +14,9 @@ export class GoodCompanyComponent implements OnInit {
   gcPlayers = GOODCOMPANYPLAYERS;
   playerData: IPlayerData;
 
-  constructor(private faceitService: FaceitService) { }
+  constructor(
+    private faceitService: FaceitService
+    ) { }
 
   ngOnInit(): void {
     this.faceitService.getDataById(GOODCOMPANYPLAYERS[0].id).subscribe(data => {
