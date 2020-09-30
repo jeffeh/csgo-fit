@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { IPlayerData } from 'src/interfaces/IPlayerData';
 import { IMatchHistory } from 'src/interfaces/IMatchHistory';
 import { FaceitService } from '../../services/faceit.service';
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './simple-stat.component.html',
   styleUrls: ['./simple-stat.component.css']
 })
-export class SimpleStatComponent implements OnChanges {
+export class SimpleStatComponent implements OnInit, OnChanges {
 
   @Input() username: string;
   playerData: IPlayerData;
@@ -21,8 +21,9 @@ export class SimpleStatComponent implements OnChanges {
 
   ngOnInit(): void {
     const gcPlayerName = this.route.snapshot.paramMap.get('playerName');
-    if (gcPlayerName)
+    if (gcPlayerName) {
       this.getData(gcPlayerName);
+    }
   }
 
   ngOnChanges(): void {
