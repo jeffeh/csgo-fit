@@ -19,7 +19,7 @@ export class MatchStatComponent implements OnInit {
 
   ngOnInit(): void {
     const matchId = this.route.snapshot.paramMap.get('matchId');
-    const data = this.faceitService.getMatchById(matchId).subscribe(data => {
+    this.faceitService.getMatchById(matchId).subscribe(data => {
       this.match = data;
     });
   }
