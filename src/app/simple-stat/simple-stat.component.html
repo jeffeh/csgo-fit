@@ -9,7 +9,7 @@
     </div>
     <div *ngIf="matchHistory">
         <li *ngFor="let item of matchHistory.items">
-            {{ item.teams.faction1.nickname }} vs. {{ item.teams.faction2.nickname }}
+            <a routerLink="match/{{item.match_id}}">{{ item.teams.faction1.nickname }} vs. {{ item.teams.faction2.nickname }}</a>
         </li>
     </div>
 </div>

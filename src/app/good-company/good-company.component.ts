@@ -19,9 +19,6 @@ export class GoodCompanyComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.faceitService.getDataById(GOODCOMPANYPLAYERS[0].id).subscribe(data => {
-      this.playerData = data;
-    });
   }
 
 }

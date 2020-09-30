@@ -21,7 +21,8 @@ export class SimpleStatComponent implements OnChanges {
 
   ngOnInit(): void {
     const gcPlayerName = this.route.snapshot.paramMap.get('playerName');
-    this.getData(gcPlayerName);
+    if (gcPlayerName)
+      this.getData(gcPlayerName);
   }
 
   ngOnChanges(): void {

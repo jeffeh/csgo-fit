@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { SimpleStatComponent } from './simple-stat/simple-stat.component';
 import { GoodCompanyComponent } from './good-company/good-company.component';
+import { MatchStatComponent } from './match-stat/match-stat.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { GoodCompanyComponent } from './good-company/good-company.component';
     HomeComponent,
     AboutComponent,
     SimpleStatComponent,
-    GoodCompanyComponent
+    GoodCompanyComponent,
+    MatchStatComponent
   ],
   imports: [
     BrowserModule,

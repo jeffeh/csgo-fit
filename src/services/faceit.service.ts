@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { IPlayerData } from '../interfaces/IPlayerData';
 import { IMatchHistory } from '../interfaces/IMatchHistory';
+import { IMatch} from '../interfaces/IMatch';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,9 @@ export class FaceitService {
 
   getMatchHistory(userId: string): Observable<IMatchHistory> {
     return this.httpClient.get<IMatchHistory>(`https://open.faceit.com/data/v4/players/${userId}/history?game=csgo&offset=0&limit=20`, this.clientOptions);
+  }
+
+  getMatchById(matchId: string): Observable<IMatch> {
+    return this.httpClient.get<IMatch>(`https://open.faceit.com/data/v4/matches/${matchId}/stats`, this.clientOptions);
   }
 }

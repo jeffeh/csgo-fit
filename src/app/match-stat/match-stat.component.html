@@ -1,0 +1,12 @@
+<p>match-stat works!</p>
+<p>todo: display more match details</p>
+<p>match-id:</p>
+<div *ngIf="match">{{ match.rounds[0].match_id}}</div>
+<div>team 1 players:</div>
+<div *ngIf="match">
+    <li *ngFor="let player of match.rounds[0].teams[0].players"> {{player.nickname}}</li>
+</div>
+<div>team 2 players:</div>
+<div *ngIf="match">
+    <li *ngFor="let player of match.rounds[0].teams[1].players"> {{player.nickname}}</li>
+</div>
