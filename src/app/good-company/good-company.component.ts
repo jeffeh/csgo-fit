@@ -2,7 +2,7 @@ import { _ParseAST } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { IPlayerData } from 'src/interfaces/IPlayerData';
 import { FaceitService } from 'src/services/faceit.service';
-import { GOODCOMPANYPLAYERS } from '../gc-players'
+import { GOODCOMPANYPLAYERS } from '../gc-players';
 
 @Component({
   selector: 'app-good-company',
