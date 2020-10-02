@@ -23,6 +23,7 @@ export class FaceitService {
   getData(user: string): Observable<IPlayerData> {
     return this.httpClient.get<IPlayerData>(`https://open.faceit.com/data/v4/players?nickname=${user}`, this.clientOptions).pipe(
       catchError((err: HttpErrorResponse) => {
+          // need to find a way to display user not found
           return throwError(err.message || 'server error')
         }
       )
