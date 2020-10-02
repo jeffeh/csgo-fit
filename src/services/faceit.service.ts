@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { IPlayerData } from '../interfaces/IPlayerData';
@@ -21,7 +21,12 @@ export class FaceitService {
   constructor(private httpClient: HttpClient) { }
 
   getData(user: string): Observable<IPlayerData> {
-    return this.httpClient.get<IPlayerData>(`https://open.faceit.com/data/v4/players?nickname=${user}`, this.clientOptions);
+    return this.httpClient.get<IPlayerData>(`https://open.faceit.com/data/v4/players?nickname=${user}`, this.clientOptions).pipe(
+      catchError((err: HttpErrorResponse) => {
+          return throwError(err.message || 'server error')
+        }
+      )
+    );
   }
 
   getDataById(player_id: string): Observable<IPlayerData> {
