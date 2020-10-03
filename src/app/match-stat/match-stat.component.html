@@ -1,6 +1,6 @@
 <div *ngIf="match">
-    <div class="text-xl">
-        {{ match.rounds[0].teams[0].team_stats.Team }} vs. {{ match.rounds[0].teams[1].team_stats.Team }}
+    <div class="text-xl font-bold">
+        {{ match.rounds[0].teams[0].team_stats.Team }} {{ match.rounds[0].teams[0].team_stats["Final Score"] }} vs. {{ match.rounds[0].teams[1].team_stats.Team }} {{ match.rounds[0].teams[1].team_stats["Final Score"] }}
     </div>
     <div>
         <table class="table-auto" *ngFor="let team of match.rounds[0].teams">
