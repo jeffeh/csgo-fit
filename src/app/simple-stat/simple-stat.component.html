@@ -8,7 +8,7 @@
         <br />
     </div>
     <div *ngIf="matchHistory">
-        <li *ngFor="let item of matchHistory.items">
+        <li *ngFor="let item of matchHistory.items" class="no-underline hover:underline text-blue-500 text-lg rounded-full">
             <a routerLink="match/{{item.match_id}}">{{ item.teams.faction1.nickname }} vs. {{ item.teams.faction2.nickname }}</a>
         </li>
     </div>

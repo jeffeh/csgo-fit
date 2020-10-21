@@ -2,7 +2,7 @@
   <p>Random statistics of our friends just for fun</p>
   <h2>Good Company Players:</h2>
   <ul>
-    <li *ngFor="let player of gcPlayers">
+    <li *ngFor="let player of gcPlayers" class="no-underline hover:underline text-blue-500 text-lg rounded-full">
       <a routerLink="/good-company/{{player.nickname}}">{{player.nickname}}</a>
     </li>
   </ul>
