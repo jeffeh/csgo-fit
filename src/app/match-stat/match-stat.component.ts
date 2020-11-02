@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IMatch } from 'src/interfaces/IMatch';
+import { IMatch, Team, Player } from 'src/interfaces/IMatch';
 import { FaceitService } from 'src/services/faceit.service';
 
 @Component({

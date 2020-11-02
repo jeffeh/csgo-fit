@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { IPlayerData } from 'src/interfaces/IPlayerData';
-import { IMatchHistory } from 'src/interfaces/IMatchHistory';
+import { IMatchHistory, Item, Winner } from 'src/interfaces/IMatchHistory';
 import { FaceitService } from '../../services/faceit.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -28,6 +28,10 @@ export class SimpleStatComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.getData(this.username);
+  }
+
+  public getWinningTeam(match: Item): string {
+    return (match.results.winner === Winner.Faction1) ? match.teams.faction1.nickname : match.teams.faction2.nickname;
   }
 
   public getData(username: string): void {

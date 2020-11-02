@@ -1,15 +1,37 @@
 <div>
     <div *ngIf="playerData">
-        Current Level: {{ playerData.games.csgo.skill_level }}
-        <br />
-        Elo: {{ playerData.games.csgo.faceit_elo }}
-        <br />
-        Country: {{ playerData.country }}
-        <br />
+        <div class="text-xl">
+            Current Level: {{ playerData.games.csgo.skill_level }}
+        </div>
+        <div>
+            Elo: {{ playerData.games.csgo.faceit_elo }}
+        </div>
+        <div>
+            Country: {{ playerData.country }}
+        </div>
     </div>
     <div *ngIf="matchHistory">
-        <li *ngFor="let item of matchHistory.items" class="no-underline hover:underline text-blue-500 text-lg rounded-full">
-            <a routerLink="match/{{item.match_id}}">{{ item.teams.faction1.nickname }} vs. {{ item.teams.faction2.nickname }}</a>
-        </li>
+        <table class="table-auto">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">
+                        Match History
+                    </th>
+                    <th class="px-4 py-2">
+                        Results
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of matchHistory.items">
+                    <td class="border px-4 py-2">
+                        <a routerLink="match/{{item.match_id}}">{{ item.teams.faction1.nickname }} vs. {{ item.teams.faction2.nickname }}</a>
+                    </td>
+                    <td class="border px-4 py-2">
+                        {{ getWinningTeam(item) }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
