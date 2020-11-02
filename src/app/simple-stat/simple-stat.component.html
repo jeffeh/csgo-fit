@@ -17,12 +17,18 @@
                     <th class="px-4 py-2">
                         Match History
                     </th>
+                    <th class="px-4 py-2">
+                        Results
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of matchHistory.items">
                     <td class="border px-4 py-2">
                         <a routerLink="match/{{item.match_id}}">{{ item.teams.faction1.nickname }} vs. {{ item.teams.faction2.nickname }}</a>
+                    </td>
+                    <td class="border px-4 py-2">
+                        TODO...
                     </td>
                 </tr>
             </tbody>
