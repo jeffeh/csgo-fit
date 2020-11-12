@@ -1,6 +1,9 @@
 <div>
-    <div *ngIf="playerData">
+    <div *ngIf="playerData" class="flex flex-col px-4 py-2 m-2">
         <div class="text-xl">
+            {{ playerData.nickname }}
+        </div>
+        <div>
             Current Level: {{ playerData.games.csgo.skill_level }}
         </div>
         <div>
