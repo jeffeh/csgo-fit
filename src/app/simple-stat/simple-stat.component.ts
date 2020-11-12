@@ -30,6 +30,10 @@ export class SimpleStatComponent implements OnInit, OnChanges {
     this.getData(this.username);
   }
 
+  public getWinningColor(match: Item): string {
+    return (match.results.winner === Winner.Faction1) ? 'text-green-600' : 'text-red-600';
+  }
+
   public getWinningTeam(match: Item): string {
     return (match.results.winner === Winner.Faction1) ? match.teams.faction1.nickname : match.teams.faction2.nickname;
   }
