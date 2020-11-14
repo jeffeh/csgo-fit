@@ -1,10 +1,11 @@
-<div *ngIf="match">
+<div *ngIf="match" class="px-4 py-2 m-2">
     <div class="text-xl font-bold">
         {{ match.rounds[0].teams[0].team_stats.Team }} {{ match.rounds[0].teams[0].team_stats["Final Score"] }} vs. {{ match.rounds[0].teams[1].team_stats.Team }} {{ match.rounds[0].teams[1].team_stats["Final Score"] }}
     </div>
     <div>
         <table class="table-auto" *ngFor="let team of match.rounds[0].teams">
             <thead>
+            <div class="pt-6">{{ team.team_stats.Team }} : {{team.team_stats["Team Win"] == 1 ? "WIN" : "LOSS"}}</div>
                 <tr>
                     <th class="px-4 py-2">Player</th>
                     <th class="px-4 py-2">Kills</th>
