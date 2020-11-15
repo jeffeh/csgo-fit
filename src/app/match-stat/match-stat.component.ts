@@ -24,4 +24,7 @@ export class MatchStatComponent implements OnInit {
     });
   }
 
+  public getWinningColor(team: Team): string {
+    return (team.team_stats["Team Win"] === '1' ? 'text-green-600' : 'text-red-600');
+  }
 }
