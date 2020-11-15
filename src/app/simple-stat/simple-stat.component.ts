@@ -2,6 +2,7 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { IPlayerData } from 'src/interfaces/IPlayerData';
 import { IMatchHistory, Item, Winner } from 'src/interfaces/IMatchHistory';
 import { FaceitService } from '../../services/faceit.service';
+import { FaceitLevel } from '../../data/FaceitLevel';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -28,6 +29,29 @@ export class SimpleStatComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.getData(this.username);
+  }
+
+  getDifferenceLevel(currentElo: number): number {
+    let diff = 0;
+    const getLevels = FaceitLevel();
+    for (const level of getLevels.LEVELS) {
+      if (currentElo >= level[0] && currentElo <= level[1]) {
+        diff = (level[1] - currentElo);
+      }
+    }
+
+    return diff;
+  }
+
+  public displayEloMessage(currentElo: number, currentLevel: number): string {
+    const diff = this.getDifferenceLevel(currentElo);
+
+    if (diff !== 0) {
+      return `🔼 ${diff} more ELO to reach to LEVEL ${currentLevel + 1}`;
+    }
+    else {
+      return 'Maximum LEVEL reached 🔥';
+    }
   }
 
   public getWinningColor(match: Item): string {

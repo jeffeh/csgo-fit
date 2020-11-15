@@ -10,7 +10,7 @@
             Elo: {{ playerData.games.csgo.faceit_elo }}
         </div>
         <div>
-            Country: {{ playerData.country }}
+            {{ displayEloMessage(playerData.games.csgo.faceit_elo, playerData.games.csgo.skill_level) }}
         </div>
         <app-elo-chart></app-elo-chart>
     </div>

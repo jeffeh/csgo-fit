@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartDataSets, ChartOptions } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-elo-chart',
@@ -12,7 +14,7 @@ export class EloChartComponent implements OnInit {
   ];
   public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
-    responsive: true,
+    annotation: true,
   };
   public lineChartColors: Color[] = [
     {
