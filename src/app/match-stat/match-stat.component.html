@@ -5,7 +5,12 @@
     <div>
         <table class="table-auto" *ngFor="let team of match.rounds[0].teams">
             <thead>
-            <div class="pt-6">{{ team.team_stats.Team }} : {{team.team_stats["Team Win"] == 1 ? "WIN" : "LOSS"}}</div>
+            <div class="pt-6 flex flex-row">
+                <div class="px-2 py-2 m-1">{{ team.team_stats.Team }}</div>
+                <div class="px-2 py-2 m-1 {{getWinningColor(team)}}">{{ team.team_stats["Team Win"] == 1 ? "WIN" : "LOSS"}}</div>
+                <div class="px-2 py-2 m-1 rounded-full bg-gray-200">First Half : {{team.team_stats["First Half Score"]}}</div>
+                <div class="px-4 py-2 m-1 rounded-full bg-gray-200">Second Half: {{team.team_stats["Second Half Score"]}}</div>
+            </div>
                 <tr>
                     <th class="px-4 py-2">Player</th>
                     <th class="px-4 py-2">Kills</th>
