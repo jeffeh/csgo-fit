@@ -22,7 +22,6 @@ export class EloChartComponent implements OnInit {
       backgroundColor: 'rgba(255,0,0,0.3)',
     },
   ];
-  public lineChartLegend = true;
   public lineChartType = 'line';
   public lineChartPlugins = [];
 
