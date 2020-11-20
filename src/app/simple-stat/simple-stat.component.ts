@@ -15,15 +15,18 @@ export class SimpleStatComponent implements OnInit, OnChanges {
   @Input() username: string;
   playerData: IPlayerData;
   matchHistory: IMatchHistory;
+  gcPlayerName = null;
+  greenText = 'text-green-600';
+  redText = 'text-red-600';
 
   constructor(
     private faceitService: FaceitService,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const gcPlayerName = this.route.snapshot.paramMap.get('playerName');
-    if (gcPlayerName) {
-      this.getData(gcPlayerName);
+    this.gcPlayerName = this.route.snapshot.paramMap.get('playerName');
+    if (this.gcPlayerName) {
+      this.getData(this.gcPlayerName);
     }
   }
 
@@ -55,7 +58,14 @@ export class SimpleStatComponent implements OnInit, OnChanges {
   }
 
   public getWinningColor(match: Item): string {
-    return (match.results.winner === Winner.Faction1) ? 'text-green-600' : 'text-red-600';
+    var desiredPlayerName = this.gcPlayerName; // cannot pass this.gcPlayerName in .find(). use var instead
+    if (match.results.winner === "faction1") {
+      var playerFound = match.teams.faction1.players.find(p => p.nickname === desiredPlayerName)
+      return playerFound ? this.greenText : this.redText;
+    } else { // faction2 was the winner
+      var playerFound = match.teams.faction2.players.find(p => p.nickname === desiredPlayerName)
+      return playerFound ? this.greenText : this.redText;
+    }
   }
 
   public getWinningTeam(match: Item): string {
