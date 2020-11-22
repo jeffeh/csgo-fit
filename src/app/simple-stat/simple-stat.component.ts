@@ -60,10 +60,10 @@ export class SimpleStatComponent implements OnInit, OnChanges {
   public getWinningColor(match: Item): string {
     const desiredPlayerName = this.username || this.gcPlayerName;
     if (match.results.winner === 'faction1') {
-      const playerFound = match.teams.faction1.players.find(p => p.nickname === desiredPlayerName)
+      const playerFound = match.teams.faction1.players.find(p => p.nickname === desiredPlayerName);
       return playerFound ? this.greenText : this.redText;
     } else { // faction2 was the winner
-      const playerFound = match.teams.faction2.players.find(p => p.nickname === desiredPlayerName)
+      const playerFound = match.teams.faction2.players.find(p => p.nickname === desiredPlayerName);
       return playerFound ? this.greenText : this.redText;
     }
   }
